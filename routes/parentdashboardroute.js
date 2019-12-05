@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Register = require("../models/parentmodel");
+const Register = require("../models/parentdbmodel");
 
 
 router.get("/", (req, res) => {

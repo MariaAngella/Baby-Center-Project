@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 
 /* Creating a Database Schema....schema should be the same format as req.body */
 const parentdbregisterSchema = new mongoose.Schema({
-
   parentphone: String,
   parentphone2: String,
+  parentaddress: String,
   babyname: String,
+  babyage: String,
   childinformation: String,
   club: String,
   sitter: String,

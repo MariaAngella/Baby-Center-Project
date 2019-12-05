@@ -110,7 +110,7 @@ const officialregistrationRoute = require("./routes/officialregistrationroute");
 app.use("/officialregistration", officialregistrationRoute);
 
 const officialloginRoute = require("./routes/officialloginroute");
-app.use("officiallogin", officialloginRoute);
+app.use("/officiallogin", officialloginRoute);
 
 const officialdashboardRoute = require("./routes/officialdashboardroute");
 app.use("/officialdashboard", officialdashboardRoute);
