@@ -2,19 +2,19 @@ extends layout.pug
 
 block content
     div.row.justify-content-center
-        
+
         div.col-md-5
             div.card-body.border
                 header.card-header
                     h4.card-title.text-center.pt-1 Sitter Login
                         form(action="/sitterlogin"  method="POST")
-                         
+
                             div.form-row
                                 div.col.form-group
                                     label User Name
                                     input.form-control( name="sitterusername")
                                     small.form-text.text-muted We'll never share your email with anyone else.
-                            
+
                             div.form-row
                                 div.col.form-group
                                     label Enter Your Password
@@ -22,18 +22,17 @@ block content
                             div.form-row
                                 div.col.form-group
                                     button.btn.btn-primary.btn-block(type="submit") Login
-                                
+
                             div.form-row
                                 small.col.text-muted By clicking the 'Sign Up' button, you confirm that you accept our 
                                 <br> Terms of use and Privacy Policy.
-                                    
-                                    
-                                        
-                //- End of form
-            //- End of Card-body
-    
 
-                
-                                
-                        
-                
+
+
+                //- End of form
+                //- End of Card-body
+
+
+
+
+

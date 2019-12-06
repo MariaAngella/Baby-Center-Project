@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const Register = require("../models/officialmodel");
+const Register = require("../models/parentdbmodel");
 
 const mongoose = require("mongoose");
-
-
 
 /* router.get("/", async (req, res) => {
   if (req.session.user) {
@@ -21,19 +19,25 @@ const mongoose = require("mongoose");
 });
  */
 
+/* 
+ */
+
+
 
 router.get("/", async (req, res) => {
-  try {
-    const items = await Register.find();
-    console.log(items);
-    res.render("officialdashboard", { parents: items });
-  } catch (err) {
-    //.catch promise and used because nodejs asyncronously waits
-    res.status(500).send("unable to save to database");
+  if (req.session.user) {
+    let items = await Register.find();
+    // if (req.query.city){
+    //   items = await Register.find({city:req.query.city})
+    // }
+    res.render("officialdashboard", {
+      users: items,
+      currentUser: req.session.user
+    });
+  } else {
+    res.redirect("/officiallogin");
   }
 });
-
-
 
 
 module.exports = router;

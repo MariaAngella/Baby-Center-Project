@@ -2,13 +2,13 @@ extends layout.pug
 
 block content
     div.row.justify-content-center
-        
+
         div.col-md-5
             div.card-body.border
                 header.card-header
                     h4.card-title.text-center.pt-1 Parent's Registration
-                      
-                        
+
+
 
                 article.card-body
                 form(method="POST" action="/parentregistration" )
@@ -16,20 +16,20 @@ block content
                         div.col.form-group
                             label First name
                             input.form-control( name="parentfirstname")
-                    
+
                         div.col.form-group
                             label Last name
                             input.form-control( name="parentlastname")
                         div.col.form-group
                             label User name
                             input.form-control( name="parentusername")
-                    
+
                     div.form-row
                         div.col.form-group
                             label Email address
                             input.form-control( name="parentemailaddress")
-                          
-                    
+
+
                     div.form-row
                         div.col.form-group
                             label.form-check.form-check-inline
@@ -39,9 +39,9 @@ block content
                             label.form-check.form-check-inline
                                 input.form-check-input(type="radio" name="parentgender" value="female")
                                 span.form-check-label Female
-                  
-                    
-                 
+
+
+
 
                     div.form-row
                         div.col.form-group
@@ -51,21 +51,20 @@ block content
                         div.col.form-group
                             button.btn.btn-primary.btn-block(type="submit") Register
                             a.btn.btn-primary.btn-block(href="/parentlogin") Login if you have an account already 
-                        
+
                     div.form-row
                         small.col.text-muted By clicking the 'Sign Up' button, you confirm that you accept our 
-                           <br> Terms of use and Privacy Policy.
+                            <br> Terms of use and Privacy Policy.
 
                 form(action="/uploadphoto" enctype="multipart/form-data" method="POST")
-                            input(type="file" name="myImage" accept="image/*")
-                            input(type="submit" value="Upload Photo")
-                            
-                            
-                                        
-           
-    
+                    input(type="file" name="myImage" accept="image/*")
+                    input(type="submit" value="Upload Photo")
 
-                
-                                
-                        
-                
+
+
+
+
+
+
+
+

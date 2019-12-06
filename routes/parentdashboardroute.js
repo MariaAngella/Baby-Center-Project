@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
     await register.save();
     console.log("Item has been saved");
     const items = await Register.find();
-    res.render("parentfb", { parents: items });
+    res.render("parentfb", { users: items });
   } catch (err) {
     res.status(500).send("unable to save to database");
   }
