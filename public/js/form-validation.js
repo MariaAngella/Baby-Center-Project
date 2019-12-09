@@ -18,3 +18,38 @@
       })
     }, false)
   }())
+
+
+      function calculate() {
+        var time = document.forms("time").value;
+        var club = document.forms("club").value;
+        var totalPrice = document.forms("totalPrice").value;
+        if (timeValidation(time)) {
+          if (clubValidation(club)) {
+          }
+        }
+
+        return false;
+      }
+      function timeValidation(time) {
+        if (time < 2 || time == "") {
+          alert("Enter time for club");
+          time.focus();
+          return false;
+        }
+        return time;
+      }
+
+      function clubValidation(club) {
+        if (club == "") {
+          alert("Enter club");
+          club.focus();
+          return false;
+        } else if (club == "night") {
+          totalPrice = 12000 * (timeValidation(time) / 2);
+          return totalPrice;
+        } else {
+          totalPrice = 8500 * (timeValidation(time) / 2);
+          return totalPrice;
+        }
+      } 

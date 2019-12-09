@@ -18,5 +18,14 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.post("/delete", async (req, res) => {
+  try {
+    await Register.deleteOne({ _id: req.body.id });
+    res.redirect("back");
+  } catch (err) {
+    res.status(500).send("unable to delete from the database");
+  }
+});
+
 
 module.exports = router;

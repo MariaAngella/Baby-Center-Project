@@ -34,7 +34,7 @@ block content
                                     td #{user.supervisorphysicaladdress}
                                     td #{user.supervisorgender}
                                         td
-                                            form(method="post" action='/officialdashboard/delete')
+                                            form(method="post" action='/supervisordashboard/delete')
                                                 input(type="hidden", placeholder="", name="id", value=user._id)
                                                 button.remove-doc.btn.btn-danger.col-xs-12(data-id="#{user.id}") Delete
                                         
