@@ -19,18 +19,12 @@ const parentregisterSchema = new mongoose.Schema({
   },
   parentpassword: {
     type: String,
-    required: "Please your password"
+    required: "Please Enter your password"
   },
-
+  parentemailaddress: String,
+  parentphysicaladdress: String,
   parentgender: String,
-  parentphone: String,
-  parentphone2: String,
-  babyname: String,
-  childinformation: String,
-  club: String,
-  sitter: String,
-  babies: String,
-  myPhoto: String
+  
 });
 
 

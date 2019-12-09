@@ -22,7 +22,12 @@ const sitterregisterSchema = new mongoose.Schema({
     required: "Please Enter password"
   },
 
-  sitteremailaddress: String,
+  sitteremailaddress: {
+    type: String,
+    unique: true,
+    required: "Please Enter email address"
+  },
+  sitterphysicaladdress: String,
   sittergender: String
 });
 
@@ -33,10 +38,10 @@ sitterregisterSchema.pre("save", function(next) {
 });
 
 sitterregisterSchema.statics.authenticate = async function(
-  sitterusername,
+  sitteremailaddress,
   sitterpassword
 ) {
-  const user = await this.findOne({ sitterusername: sitterusername });
+  const user = await this.findOne({ sitteremailaddress: sitteremailaddress });
   if (!user) {
     throw new Error("User not found.");
   }

@@ -27,11 +27,11 @@ block content
                                 th Choose Sitter
                                 th Assign Task Below
                             tbody
-                                each parent in parents
+                                each user in users
                                     tr 
-                                        td #{parent.babyname}  
-                                        td #{parent.parentname}
-                                        td #{parent.parentcontact}
+                                        td #{user.babyname}  
+                                        td #{user.parentname}
+                                        td #{user.parentcontact}
                                         td 
                                             select#inputState.form-control(name="club")
                                                 option Choose...

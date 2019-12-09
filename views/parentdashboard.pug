@@ -1,101 +1,94 @@
 extends layout
 block content
-    header.card-header
-        h4.card-title Welcome dear Parent
-        b Hello, #{currentUser.parentfirstname}  
-    |&nbsp
-    div.form-row
-        //- div.col.form-group.col-md-9    
-        //-     form.search(action='/parentregistration/search')
-        //-         div.form-row
-        //-             div.col-md-8
-        //-                 input.form-control(name='city' placeholder="Enter your search term ...")
-        //-             div.col-md-4
-        //-                 input.btn.btn-dark.btn-block(type="submit")
-        div.col.form-group.col-md-3    
-            form(method="post" action='/parentlogout')
-                button.btn.btn-dark.btn-block(type="submit") Log out
-        div.col.form-group.col-md-9
-            form(method="POST" action='/parentdashboard')
-                div.form-row
-                    div.col.form-group
-                        label Please Enter Your Phone number
-                        input.form-control(name="parentphone" placeholder="Enter your active number:")
-                        input.form-control(name="parentphone2" placeholder="Enter Alternative number:")
+    div.row.justify-content-center
+        div.col-md-4
+            div.card-body.border
+                header.card-header  
+                    h4.card-title Welcome to the Supervisor's dashboard.
+
+                       
+                        a.btn.btn-primary.btn-block(href="/parentregistration") Appointment for New Customer
+                        a.btn.btn-primary.btn-block(href="/parentlogin") Appointment for Already Registered Customer
+                        a.btn.btn-primary.btn-block(href="/supervisorlogout") Logout
+        div.col-md-7
+            header.card-header
+                h4.card-title Enter Customer Details
+                b Customer ID # #{currentUser.parentusername}  
+
+
+                div.col.form-group.col-md-9
+                    form(method="POST" action='/parentdashboard')
                         div.form-row
-                    div.col.form-group
-                        label Please Enter Your Physical Address
-                        input.form-control(name="parentaddress" placeholder="Enter your physical address:")
+                            div.col.form-group
+                                label Please Enter Parent's Phone number
+                                input.form-control(name="parentphone" placeholder="Enter Parent's contact:")
+
+
+                        div.form-row
+                            div.col.form-group
+                                label Enter Baby's Name
+                                input.form-control( name="babyname" placeholder="Enter baby's name:")
+                                
+                            div.col.form-group
+                                label Enter Baby's Age
+                                input.form-control( name="babyage" placeholder="Enter baby's age:")
+                                
+
+                        div.form-row
+                            div.col.form-group
+                                label Club
+                                select#inputState.form-control(name="club")
+                                    option Choose...
+                                    option(value="morning" ) Morning
+                                    option(value="afternoon" ) Afternoon
+                                    option(value="evening" ) Evening
+                                    option(value="night" ) Night
+
+
+                        div.form-row
+                            div.col.form-group
+                                label Hours
+                                select#inputState.form-control(name="hour")
+                                    option Choose...
+                                    option(value="one" ) one
+                                    option(value="two" ) two
+                                    option(value="three" ) three
+                                    option(value="four" ) four
+                                    option(value="five" ) five
+                                    option(value="six" ) six
+
+
+                        div.form-row
+                            div.col.form-group
+                                label Billing per 2 hours
+                                select#inputState.form-control(name="bill")
+                                    option Choose...
+                                    option(value="dayclub" ) UGX 8500/=
+                                    option(value="nightclub" ) UGX 12000/=
 
 
 
-                div.form-row
-                    div.col.form-group
-                        label.form-check.form-check-inline Do you need care for more than one Baby? 
-                    div.form-row
-                        div.col.form-group
-                            input.form-check-input(type="radio" name="babies" value="more")
-                            span.form-check-label Yes
-                    div.col.form-group
-                        label.form-check.form-check-inline
-                            input.form-check-input(type="radio" name="babies" value="one")
-                            span.form-check-label No
-
-                    div.col.form-group
-                        label Enter Baby's Name
-                        input.form-control( name="babyname" placeholder="Enter your child's name:")
-                        //- input.form-control( name="babyname" placeholder="Enter your child's name:")
-                    div.col.form-group
-                        label Enter Baby's Age
-                        input.form-control( name="babyage" placeholder="Enter your child's name:")
-                        //- input.form-control( name="babyname2" placeholder="Enter your child's name:")
-
-                div.form-row
-                    div.col.form-group
-                        label Select Time for Care
-                        select#inputState.form-control(name="club")
-                            option Choose...
-                            option(value="Day" ) Day
-                            option(value="Night" ) Night
-                            option(value="Hours" selected) Hours
-                    div.col.form-group
-                        label Please Add Extra information for the Sitter on Duty
-                        textarea.form-control(name="childinformation" cols="30", rows="3" placeholder="Please enter extra details for your child here:")        
-
-                //- form-row end
+                            div.col.form-group
+                                label Please Add Extra information for the Sitter on Duty
+                                textarea.form-control(name="childinformation" cols="30", rows="3" placeholder="Please enter extra details for your child here:")        
 
 
+                        div.form-row
+                            
+                            div.form-group.col-md-6
+                                label Choose Baby's Sitter
+                                select#inputState.form-control(name="sitter")
+                                    each user in users
+                                        option Choose...
+                                        option #{user.sitterfirstname}  
+                                    
 
 
-                div.form-row
-                    div.form-group.col-md-6
-                        label Upload Your Baby's Photo
-                            //- form(action="/upload" enctype="multipart-form-data")
-                            input.form-control(type="file" name="myPhoto" accept="image/*")
-                            input(type="submit" value="Upload Photo")
-                    div.form-group.col-md-6
-                        label Choose your Baby's Sitter
-                        select#inputState.form-control(name="sitter")
-                            option Choose...
-                            option(value="Maria Angella" ) Maria Angella
-                            option(value="Doreen Ayebare" ) Doreen Ayebare
-                            option(value="Grace Nakimera" selected) Grace Nakimera
-                            option(value="Ritah Apio")  Ritah Apio
-                            option(value="Sandra Sonko")  Sandra Sonko
+                        div.form-row
+                            div.col.form-group
+                                button.btn.btn-primary.btn-block(type="submit") Submit
 
 
-                div.form-row
-                    div.col.form-group
-                        button.btn.btn-primary.btn-block(type="submit") Submit
-
-                div.form-row
-                    small.col.text-muted By clicking the 'Submit' button, you confirm that you accept our Terms of use and Privacy Policy.
-                    br
-
-
-
-            //- End of form
-            //- End of Card-body
 
 
 

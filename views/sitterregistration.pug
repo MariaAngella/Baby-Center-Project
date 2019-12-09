@@ -2,8 +2,13 @@ extends layout.pug
 
 block content
     div.row.justify-content-center
+        div.col-md-4
+            a.btn.btn-primary.btn-block(href="/supervisorregistration") Register Supervisor 
+            a.btn.btn-primary.btn-block(href="/sitterregistration") Register Sitter 
+            a.btn.btn-primary.btn-block(href="/officialdashboard") View Customer Details
+            a.btn.btn-primary.btn-block(href="/officiallogout") Logout
 
-        div.col-md-5
+        div.col-md-7
             div.card-body.border
                 header.card-header
                     h4.card-title.text-center.pt-1 Sitter's Registration
@@ -11,23 +16,29 @@ block content
 
 
                 article.card-body
-                form(method="POST" action="/sitterregistration" )
+                form(name="sitterregistration" method="POST" action="/sitterregistration" onSubmit="return +formValidation();"  onchange="return FormValidation();")
                     div.form-row
                         div.col.form-group
                             label First name
-                            input.form-control( name="sitterfirstname")
+                            input(type='text', name='sitterfirstname', class="form-control.ng-touched.ng-invalid.style.border('2px solid red')", id='sitterfirstname', placeholder='Enter first name', required, data-required-msg='First Name is required'  oninvalid="this.setCustomValidity('Enter first name')"
+ oninput="userIdVal('')")
+                                  
 
                         div.col.form-group
                             label Last name
-                            input.form-control( name="sitterlastname")
+                            input(type='text', name='sitterlastname', class='form-control', id='sitterlastname', placeholder='Enter last name', required, data-required-msg='Last Name is required')
                         div.col.form-group
-                            label User name
-                            input.form-control( name="sitterusername")
+                            label Sitter's ID
+                            input(type='text', name='sitterusername', class='form-control', id='sitterusername', placeholder='e.g MO0001', required, data-required-msg='Username is required')
 
                     div.form-row
                         div.col.form-group
                             label Email address
-                            input.form-control( name="sitteremailaddress")
+                            input(type='email', name='sitteremailaddress', class='form-control', id='sitteremailaddress', placeholder='Enter email address', required, data-required-msg='Email address is required')
+                    div.form-row
+                        div.col.form-group
+                            label Physical address
+                            input(type='text', name='sitterphysicaladdress', class='form-control', id='sitterphysicaladdress', placeholder='Enter physical address', required, data-required-msg='Physical address is required')
 
 
                     div.form-row
@@ -46,19 +57,17 @@ block content
                     div.form-row
                         div.col.form-group
                             label Create password
-                            input.form-control(type="password" name="sitterpassword")
+                            input(type='password', name='sitterpassword', class='form-control', id='sitterpassword', placeholder='Enter password', required, data-required-msg='Password is required')
                     div.form-row
                         div.col.form-group
                             button.btn.btn-primary.btn-block(type="submit") Register
-                            a.btn.btn-primary.btn-block(href="/sitterlogin") Login if you have an account already 
+                        
 
                     div.form-row
                         small.col.text-muted By clicking the 'Sign Up' button, you confirm that you accept our 
                             <br> Terms of use and Privacy Policy.
 
-                form(action="/uploadphoto" enctype="multipart/form-data" method="POST")
-                    input(type="file" name="myImage" accept="image/*")
-                    input(type="submit" value="Upload Photo")
+                
 
 
 

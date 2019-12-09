@@ -5,11 +5,11 @@ const Register = require("../models/supervisormodel");
 const mongoose = require("mongoose");
 
 router.get("/", (req, res) => {
-  res.render("supervisordashboard");
+  res.render("supervisorlogin");
 });
 
-router.post("/", async (req, res) => { 
+/* router.post("/", async (req, res) => { 
      res.render("supervisorlogin");
-});
+}); */
 
 module.exports = router;

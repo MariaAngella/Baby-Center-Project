@@ -3,8 +3,12 @@ const router = express.Router();
 const Register = require("../models/parentdbmodel");
 
 
+
 router.get("/", (req, res) => {
-  res.render("parentdashboard");
+  
+    res.render("parentdashboard");
+    res.sendFile(__dirname + "/parentdashboard");
+ 
 });
 
 

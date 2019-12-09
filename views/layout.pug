@@ -3,9 +3,20 @@ html(lang="en")
   head
     title Registered Files
 
-    link(rel="stylesheet", href="./css/style.css")
+    //- link(rel="stylesheet", href="../public/css/style.css")
     link(rel="stylesheet",href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
-
+    script.
+        if (userIdVal(sitterfirstname, 0, 4)) {function userIdVal(sitterfirstname, mx, my) {
+            var uidLen = sitterfirstname.value.length;
+            //uidLen refers to the length of the element uid
+            if (uidLen == 0 || uidLen >= my || uidLen < mx) {
+                uid.focus();
+                uid.style.border = "2px solid red";
+                alert("Please input your user ID");
+                return false;
+            }
+            return true;
+            }}
 
 
 
@@ -14,19 +25,20 @@ html(lang="en")
 
 
   body
-    div.container-fluid.bg-secondary.mb-4
+    div(style=`background-image:url("../public/images/pic.jpg")`)
       div.card-body.text-center
-        h3.text-white  Baby Center
+        h3.text-black  JBC Center
+        
 
     block content
-    script(type='text/javascript' src='/public/js/validationregistration.js')
+    
 
     block foot
 
       div.container-fluid.bg-secondary.mb-4
         div.card-body.text-center
-          h3.text-white  Care for little explorers. &copy; Maria Angella Aboyo
-
+          h3.text-white  Care for little explorers. &copy; JBC
+    //- script(type='text/javascript' src='../public/js/validationregistration.js')
 
 
 

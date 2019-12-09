@@ -13,6 +13,7 @@
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "express-validator": "^6.3.0",
     "fs": "0.0.1-security",
     "jest": "^24.9.0",
     "mongoose": "^5.7.9",
@@ -22,6 +23,7 @@
     "pug-cli": "^1.0.0-alpha6"
   },
   "devDependencies": {
+    "broccoli-sass-image-vars": "^0.1.1",
     "nodemon": "^1.19.4"
   }
 }

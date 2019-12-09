@@ -21,8 +21,14 @@ const supervisorregisterSchema = new mongoose.Schema({
     type: String,
     required: "Please Enter password"
   },
-  supervisoremailaddress: String,
-  admingender: String
+  supervisoremailaddress: {
+    type: String,
+    unique: true,
+    required: "Please Enter emailaddress"
+  },
+ 
+  supervisorphysicaladdress: String,
+  supervisorgender: String
 });
 
 
@@ -32,10 +38,12 @@ supervisorregisterSchema.pre("save", function(next) {
 });
 
 supervisorregisterSchema.statics.authenticate = async function(
-  supervisorusername,
+  supervisoremailaddress,
   supervisorpassword
 ) {
-  const user = await this.findOne({ supervisorusername: supervisorusername });
+  const user = await this.findOne({
+    supervisoremailaddress: supervisoremailaddress
+  });
   if (!user) {
     throw new Error("User not found.");
   }

@@ -21,7 +21,13 @@ const officialregisterSchema = new mongoose.Schema({
     type: String,
     required: "Please Enter password"
   },
-  officialemailaddress: String,
+  officialemailaddress: {
+    type: String,
+    unique: true,
+    required: "Please Enter emailaddress"
+  },
+
+  officialphysicaladdress: String,
   officialgender: String
 });
 
@@ -31,10 +37,12 @@ officialregisterSchema.pre("save", function(next) {
 });
 
 officialregisterSchema.statics.authenticate = async function(
-  officialusername,
+  officialemailaddress,
   officialpassword
 ) {
-  const user = await this.findOne({ officialusername: officialusername });
+  const user = await this.findOne({
+    officialemailaddress: officialemailaddress
+  });
   if (!user) {
     throw new Error("User not found.");
   }

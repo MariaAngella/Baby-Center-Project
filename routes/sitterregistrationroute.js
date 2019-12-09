@@ -2,7 +2,11 @@ const express = require("express");
 const router = express.Router();
 const Register = require("../models/sittermodel");
 
-const mongoose = require("mongoose");
+const xxxx = require("../public/js/validationregistration");
+
+xxxx();
+
+
 
 
 
@@ -22,7 +26,8 @@ router.post("/", async (req, res) => {
     await register.save();
     console.log("Item has been saved");
     const items = await Register.find();
-    res.render("sitterlogin", { users: items });
+    // res.render("sitterlogin", { users: items });
+    res.render("officialfb")
   } catch (err) {
     res.status(500).send("unable to save to database");
   }

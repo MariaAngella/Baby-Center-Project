@@ -12,20 +12,18 @@ block content
                             div.form-row
                                 div.col.form-group
                                     label User Name
-                                    input.form-control( name="officialusername")
-                                    small.form-text.text-muted We'll never share your email with anyone else.
+                                    input(type='text', name='officialemailaddress', class='form-control', id='officialemailaddress', placeholder='Enter username', required, data-required-msg='Username is required')
+                                    
 
                             div.form-row
                                 div.col.form-group
                                     label Enter Your Password
-                                    input.form-control(type="password" name="officialpassword")
+                                    input(type='password', name='officialpassword', class='form-control', id='password', placeholder='Enter password', required, data-required-msg='Password is required')
                             div.form-row
                                 div.col.form-group
                                     button.btn.btn-primary.btn-block(type="submit") Login
 
-                            div.form-row
-                                small.col.text-muted By clicking the 'Sign Up' button, you confirm that you accept our 
-                                <br> Terms of use and Privacy Policy.
+                            
 
 
 

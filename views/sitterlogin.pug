@@ -12,20 +12,17 @@ block content
                             div.form-row
                                 div.col.form-group
                                     label User Name
-                                    input.form-control( name="sitterusername")
-                                    small.form-text.text-muted We'll never share your email with anyone else.
+                                    input(type='email', name='sitteremailaddress', class='form-control', id='sitteremailaddress', placeholder='Enter your Email Address', required, data-required-msg='Username is required')
+
 
                             div.form-row
                                 div.col.form-group
                                     label Enter Your Password
-                                    input.form-control(type="password" name="sitterpassword")
+                                    input(type='password', name='sitterpassword', class='form-control', id='sitterpassword', placeholder='Enter password', required, data-required-msg='Password is required')
                             div.form-row
                                 div.col.form-group
                                     button.btn.btn-primary.btn-block(type="submit") Login
 
-                            div.form-row
-                                small.col.text-muted By clicking the 'Sign Up' button, you confirm that you accept our 
-                                <br> Terms of use and Privacy Policy.
 
 
 

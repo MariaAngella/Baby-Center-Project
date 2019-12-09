@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const user = await Register.authenticate(
-      req.body.supervisorusername,
+      req.body.supervisoremailaddress,
       req.body.supervisorpassword
     );
     req.session.user = user;

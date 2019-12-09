@@ -23,7 +23,8 @@ router.post("/", async (req, res) => {
     await register.save();
     console.log("Item has been saved");
     const items = await Register.find();
-    res.render("supervisorlogin", { users: items });
+    // res.render("supervisorlogin", { users: items });
+     res.render("officialfb");
   } catch (err) {
     res.status(500).send("unable to save to database");
   }
@@ -35,7 +36,7 @@ router.get("/search", async (req, res) => {
   if (req.session.user) {
     console.log(req.session.user)
     let items = await Register.find();
-    res.render("supervisordashboard", {
+    res.render("parentdashboard", {
       users: items,
       currentUser: req.session.user
     });

@@ -1,56 +1,37 @@
-extends layout
-block content
-    header.card-header
-        h4.card-title Welcome Official
-        b Hello, #{currentUser.officialfirstname}  
-    |&nbsp
-    div.form-row
-        //- div.col.form-group.col-md-9    
-        //-     form.search(action='/officialregistration/search')
-        //-         div.form-row
-        //-             div.col-md-8
-        //-                 input.form-control(name='city' placeholder="Enter your search term ...")
-        //-             div.col-md-4
-        //-                 input.btn.btn-dark.btn-block(type="submit")
-        div.col.form-group.col-md-3    
-            form(method="post" action='/officiallogout')
-                button.btn.btn-dark.btn-block(type="submit") Log out
-        div.col.form-group.col-md-9 
-            table.table
-                thead.thead-dark
-                    tr
-                        th Baby's Name
-                        th Parent's Name
-                        th Parent's Contact
-                        th Choose Club
-                        th Add Specific Decription
-                        th Choose Sitter
-                        th Assign Task Below
-                    tbody
-                        each user in users
-                            tr 
-                                td #{user.babyname}  
-                                td #{user.parentphone}
-                                td #{user.parentaddress}
-                                td 
-                                    select#inputState.form-control(name="club")
-                                        option Choose...
-                                        option(value="Day" ) Day
-                                        option(value="Night" ) Night
-                                        option(value="Extra Time" selected) Extra Time
+extends layout.pug
 
-                                td
-                                td 
-                                    select#inputState.form-control(name="sitter")
-                                        option Choose...
-                                        option(value="Maria Angella" ) Maria Angella
-                                        option(value="Doreen Ayebare" ) Doreen Ayebare
-                                        option(value="Grace Nakimera" selected) Grace Nakimera
-                                        option(value="Ritah Apio")  Ritah Apio
-                                        option(value="Sandra Sonko")  Sandra Sonko
-                                td 
-                                    button.btn.btn-primary.btn-block(type="confirm") Assign Task   
-                                    form(method="post" action='/officialregistration/delete')
-                                td
-                                    input(type="hidden", placeholder="", name="id", value=user._id)
-                                    button.btn.btn-dark.btn-block(type="submit") Delete
+block content
+    div.row.justify-content-center
+        div.col-md-4
+            a.btn.btn-primary.btn-block(href="/supervisorregistration") Register Supervisor 
+            a.btn.btn-primary.btn-block(href="/sitterregistration") Register Sitter 
+            a.btn.btn-primary.btn-block(href="/officialdashboard") View Customer Details
+            a.btn.btn-primary.btn-block(href="/officiallogout") Logout
+
+        div.col-md-7
+            div.row.justify-content-center Customer Details
+                table.table 
+                    thead.thead-dark
+                        tr
+                            th Parent's Contact
+                            th Baby's Name
+                            th Baby's Age
+                            th Club
+                            th Billing
+                            th Baby's Extra Information
+                            th Sitter
+                        tbody
+                            each user in users
+                                tr 
+                                    td #{user.parentphone}  
+                                    td #{user.babyname}
+                                    td #{user.babyage}
+                                    td #{user.club}
+                                    td #{user.bill}
+                                    td #{user.childinformation}
+                                    td #{user.sitter}
+                                        td
+                                            form(method="post" action='/officialdashboard/delete')
+                                                input(type="hidden", placeholder="", name="id", value=user._id)
+                                                button.remove-doc.btn.btn-danger.col-xs-12(data-id="#{user.id}") Delete
+                                                        
