@@ -1,15 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const Register = require("../models/supervisormodel");
+const Register = require("../models/sittermodel");
+
+
+
+
 
 
 
 router.get("/", async (req, res) => {
   if (req.session.user) {
-    
     let items = await Register.find();
-   
-    res.render("supervisordashboard", {
+
+    res.render("sitterdashboarddb", {
       users: items,
       currentUser: req.session.user
     });
@@ -17,6 +20,10 @@ router.get("/", async (req, res) => {
     res.redirect("/supervisorlogin");
   }
 });
+
+
+
+
 
 
 module.exports = router;

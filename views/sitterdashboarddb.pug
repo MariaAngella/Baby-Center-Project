@@ -27,12 +27,12 @@ block content
                         tbody
                             each user in users
                                 tr 
-                                    td #{user.supervisorfirstname}  
-                                    td #{user.supervisorlastname}
-                                    td #{user.supervisorusername}
-                                    td #{user.supervisoremailaddress}
-                                    td #{user.supervisorphysicaladdress}
-                                    td #{user.supervisorgender}
+                                    td #{user.sitterfirstname}  
+                                    td #{user.sitterlastname}
+                                    td #{user.sitterusername}
+                                    td #{user.sitteremailaddress}
+                                    td #{user.sitterphysicaladdress}
+                                    td #{user.sittergender}
                                         td
                                             form(method="post" action='/officialdashboard/delete')
                                                 input(type="hidden", placeholder="", name="id", value=user._id)

@@ -50,6 +50,8 @@ app.use(
 const landingpageRoute = require("./routes/landingpageroute");
 app.use("/", landingpageRoute);
 
+
+
 const supervisorlogoutRoute = require("./routes/supervisorlogoutroute");
 app.use("/supervisorlogout", supervisorlogoutRoute);
 
@@ -97,6 +99,9 @@ app.use("/sitterlogin", SitterloginRoute);
 
 const SitterdashboardRoute = require("./routes/sitterdashboardroute");
 app.use("/sitterdashboard", SitterdashboardRoute);
+
+const SitterdashboarddbRoute = require("./routes/sitterregistrationdbroute");
+app.use("/sitterdashboarddb", SitterdashboarddbRoute);
 
 /* creates documents in the db------------------------------------- name of the collection model(collection storage,schemaStructure)....takes on the structure of schema and the req.body(user data) into the Register collection */
 //const Register = mongoose.model("Register", registerSchema);

@@ -24,7 +24,8 @@ router.post("/", async (req, res) => {
     );
     req.session.user = user;
     console.log(user)
-    res.redirect("/supervisorregistration/search"); 
+    // res.redirect("/supervisorregistration/search"); 
+    res.render("parentregistration")
   } catch {
     res.send("Login Failed")
   }
