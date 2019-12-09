@@ -10,9 +10,9 @@ const session = require("express-session");
 const expressValidator = require("express-validator");
 const imageVars = require("broccoli-sass-image-vars");
 
-const xxxx = require("./public/js/validationregistration");
+// const xxxx = require("./public/js/validationregistration");
 
-xxxx();
+// xxxx();
 
 const app = express(); // now we have our express app
 
@@ -23,8 +23,9 @@ mongoose.connect("mongodb://localhost:27017/babycenter");
 
 
 
-app.use(express.static("./public"));
-app.use(express.static("static"));
+
+app.use(express.static(path.join(__dirname,'public')));
+
 
 
 

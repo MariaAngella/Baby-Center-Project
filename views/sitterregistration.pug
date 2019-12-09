@@ -7,6 +7,7 @@ block content
             a.btn.btn-primary.btn-block(href="/sitterregistration") Register Sitter 
             a.btn.btn-primary.btn-block(href="/officialdashboard") View Customer Details
             a.btn.btn-primary.btn-block(href="/officiallogout") Logout
+            img.mb-4(src="images/pic.jpg", alt="babies" width="400" height="400")
 
         div.col-md-7
             div.card-body.border
@@ -16,17 +17,21 @@ block content
 
 
                 article.card-body
-                form(name="sitterregistration" method="POST" action="/sitterregistration" onSubmit="return +formValidation();"  onchange="return FormValidation();")
+                form.needs-validation(novalidate="" name="sitterregistration" method="POST" action="/sitterregistration" )
                     div.form-row
                         div.col.form-group
                             label First name
-                            input(type='text', name='sitterfirstname', class="form-control.ng-touched.ng-invalid.style.border('2px solid red')", id='sitterfirstname', placeholder='Enter first name', required, data-required-msg='First Name is required'  oninvalid="this.setCustomValidity('Enter first name')"
- oninput="userIdVal('')")
-                                  
+                            input#firstName.form-control(type="text" placeholder="Enter first name" value="" name="sitterfirstname" required="")
+                            .invalid-feedback
+                                | Valid first name is required.
+                                      
+                                                                        
 
                         div.col.form-group
                             label Last name
-                            input(type='text', name='sitterlastname', class='form-control', id='sitterlastname', placeholder='Enter last name', required, data-required-msg='Last Name is required')
+                            input#lastName.form-control(type="text" placeholder="Enter last name" value="" name="sitterlastname" required="")
+                            .invalid-feedback
+                                | Valid last name is required.
                         div.col.form-group
                             label Sitter's ID
                             input(type='text', name='sitterusername', class='form-control', id='sitterusername', placeholder='e.g MO0001', required, data-required-msg='Username is required')
@@ -66,6 +71,12 @@ block content
                     div.form-row
                         small.col.text-muted By clicking the 'Sign Up' button, you confirm that you accept our 
                             <br> Terms of use and Privacy Policy.
+
+    script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js")
+    script.
+      window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\\/script>')
+    script(src="js/bootstrap.bundle.min.js" )
+    script(src="js/form-validation.js")
 
                 
 

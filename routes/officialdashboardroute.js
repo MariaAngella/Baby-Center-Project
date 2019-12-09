@@ -20,14 +20,15 @@ router.get("/", async (req, res) => {
 
 
 
-router.delete('/delete', (req, res) => {  
-  db.collection("officialdashboard").findOneAndDelete(
-    { name: req.body.babyname },
-    (err, result) => {
-      if (err) return res.send(500, err);
-      res.send("An appointment is deleted");
-    }
-  );})
+router.post('/delete', async(req, res) => {  
+  try {
+    await Register.deleteOne({_id: req.body.id})
+    res.redirect('back')
+  }
+  catch (err){
+    res.status(500).send('unable to delete from the database')
+  }
+ })
 
 
 module.exports = router;

@@ -11,7 +11,7 @@ block content
 
 
                 article.card-body
-                form(name="officialregistration" method="POST" action="/officialregistration" onSubmit="return +formValidation();")
+                form.needs-validation(novalidate="" name="officialregistration" method="POST" action="/officialregistration" onSubmit="return +formValidation();")
                     div.form-row
                         div.col.form-group
                             label First name
