@@ -52,5 +52,5 @@ officialregisterSchema.statics.authenticate = async function(
   }
 };
 
-//create a model
+//create a model for export
 module.exports = mongoose.model("Official", officialregisterSchema);
